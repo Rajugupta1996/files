@@ -1,0 +1,9 @@
+{
+	"name": "ADF-actory123",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "023815e8-c4af-4c8f-b2fc-b3e29f0c3b75",
+		"tenantId": "3ec3ecc3-353c-40d6-b9ba-20d51d2177b2"
+	}
+}

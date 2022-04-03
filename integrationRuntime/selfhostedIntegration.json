@@ -1,0 +1,7 @@
+{
+	"name": "selfhostedIntegration",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "Integration runtime for gettign on Premise data to ADLS"
+	}
+}
