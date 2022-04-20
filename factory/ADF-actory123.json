@@ -1,5 +1,13 @@
 {
 	"name": "ADF-actory123",
+	"properties": {
+		"globalParameters": {
+			"name": {
+				"type": "string",
+				"value": "rajkumar"
+			}
+		}
+	},
 	"location": "eastus",
 	"identity": {
 		"type": "SystemAssigned",
