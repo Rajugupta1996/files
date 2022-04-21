@@ -23,11 +23,6 @@
 				}
 			}
 		],
-		"parameters": {
-			"raj": {
-				"type": "string"
-			}
-		},
 		"annotations": []
 	}
 }
