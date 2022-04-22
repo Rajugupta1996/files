@@ -3,8 +3,8 @@
 	"properties": {
 		"activities": [
 			{
-				"name": "Notebook1",
-				"type": "DatabricksNotebook",
+				"name": "Get Metadata1",
+				"type": "GetMetadata",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "7.00:00:00",
@@ -15,28 +15,15 @@
 				},
 				"userProperties": [],
 				"typeProperties": {
-					"notebookPath": "/Users/rak211j3@outlook.com/raju"
-				},
-				"linkedServiceName": {
-					"referenceName": "AzureDatabricks2",
-					"type": "LinkedServiceReference"
-				}
-			},
-			{
-				"name": "Fail1",
-				"type": "Fail",
-				"dependsOn": [
-					{
-						"activity": "Notebook1",
-						"dependencyConditions": [
-							"Succeeded"
-						]
+					"dataset": {
+						"referenceName": "Excel1",
+						"type": "DatasetReference"
+					},
+					"fieldList": [],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
 					}
-				],
-				"userProperties": [],
-				"typeProperties": {
-					"message": "notebook error",
-					"errorCode": "sdfkjahdfjkhadkhjf"
 				}
 			}
 		],
