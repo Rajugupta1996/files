@@ -10,6 +10,7 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "1strun/dbo_MW_nifty_50.csv",
 				"folderPath": "container1"
 			}
 		},
