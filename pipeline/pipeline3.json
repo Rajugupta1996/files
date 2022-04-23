@@ -38,6 +38,21 @@
 						}
 					},
 					"enableStaging": false,
+					"parallelCopies": 10,
+					"logSettings": {
+						"enableCopyActivityLog": true,
+						"copyActivityLogSettings": {
+							"logLevel": "Warning",
+							"enableReliableLogging": false
+						},
+						"logLocationSettings": {
+							"linkedServiceName": {
+								"referenceName": "linkedService2",
+								"type": "LinkedServiceReference"
+							}
+						}
+					},
+					"dataIntegrationUnits": 32,
 					"translator": {
 						"type": "TabularTranslator",
 						"mappings": [
