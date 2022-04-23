@@ -68,7 +68,6 @@
 									"storeSettings": {
 										"type": "AzureBlobFSReadSettings",
 										"recursive": true,
-										"wildcardFileName": "*",
 										"enablePartitionDiscovery": false
 									},
 									"formatSettings": {
@@ -87,6 +86,8 @@
 									}
 								},
 								"enableStaging": false,
+								"parallelCopies": 100,
+								"dataIntegrationUnits": 256,
 								"translator": {
 									"type": "TabularTranslator",
 									"typeConversion": true,
