@@ -5,20 +5,23 @@
 		"factoryName": {
 			"value": "ADF-actory123"
 		},
-		"AzureDataLakeStorage1_accountKey": {
-			"value": ""
-		},
 		"AzureDatabricks1_accessToken": {
 			"value": ""
 		},
-		"AzureDataLakeStorage1_properties_typeProperties_url": {
-			"value": "https://azuredatalake123.dfs.core.windows.net"
+		"AzureDatabricks2_accessToken": {
+			"value": ""
+		},
+		"linkedServicetoADL_accountKey": {
+			"value": ""
 		},
 		"AzureKeyVault1_properties_typeProperties_baseUrl": {
 			"value": "https://credentialsforsqlserver.vault.azure.net/"
 		},
 		"SqlServer1_properties_typeProperties_connectionString_secretName": {
 			"value": "secret10"
+		},
+		"linkedServicetoADL_properties_typeProperties_url": {
+			"value": "https://azuredatalake123.dfs.core.windows.net"
 		},
 		"containerUri": {
 			"value": ""
