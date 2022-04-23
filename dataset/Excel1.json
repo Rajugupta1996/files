@@ -1,0 +1,22 @@
+{
+	"name": "Excel1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "1214",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Excel",
+		"typeProperties": {
+			"sheetName": "Sheet1",
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "Book1.xlsx",
+				"folderPath": "1strun",
+				"fileSystem": "container1"
+			},
+			"firstRowAsHeader": true
+		},
+		"schema": []
+	}
+}
