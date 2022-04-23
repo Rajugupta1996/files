@@ -10,21 +10,42 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobFSLocation",
+				"fileName": "dbo_MW_nifty_50.csv",
 				"folderPath": "1strun",
 				"fileSystem": "container1"
 			},
 			"columnDelimiter": ",",
 			"escapeChar": "\\",
+			"firstRowAsHeader": true,
 			"quoteChar": "\""
 		},
 		"schema": [
 			{
+				"name": "SYMBOL",
 				"type": "String"
 			},
 			{
+				"name": "VOLUME",
 				"type": "String"
 			},
 			{
+				"name": "VALUE",
+				"type": "String"
+			},
+			{
+				"name": "_52W_H",
+				"type": "String"
+			},
+			{
+				"name": "_52W_L",
+				"type": "String"
+			},
+			{
+				"name": "_365_D_CHNG",
+				"type": "String"
+			},
+			{
+				"name": "_30_D_CHNG",
 				"type": "String"
 			}
 		]
