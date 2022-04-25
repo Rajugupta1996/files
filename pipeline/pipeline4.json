@@ -54,110 +54,6 @@
 					},
 					"activities": [
 						{
-							"name": "If Condition1",
-							"type": "IfCondition",
-							"dependsOn": [
-								{
-									"activity": "Set variable2",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"expression": {
-									"value": "@startswith(item().name,'dbo')",
-									"type": "Expression"
-								},
-								"ifTrueActivities": [
-									{
-										"name": "Copy data1",
-										"type": "Copy",
-										"dependsOn": [],
-										"policy": {
-											"timeout": "7.00:00:00",
-											"retry": 0,
-											"retryIntervalInSeconds": 30,
-											"secureOutput": false,
-											"secureInput": false
-										},
-										"userProperties": [],
-										"typeProperties": {
-											"source": {
-												"type": "DelimitedTextSource",
-												"storeSettings": {
-													"type": "AzureBlobFSReadSettings",
-													"recursive": true,
-													"enablePartitionDiscovery": false
-												},
-												"formatSettings": {
-													"type": "DelimitedTextReadSettings"
-												}
-											},
-											"sink": {
-												"type": "DelimitedTextSink",
-												"storeSettings": {
-													"type": "AzureBlobFSWriteSettings"
-												},
-												"formatSettings": {
-													"type": "DelimitedTextWriteSettings",
-													"quoteAllText": true,
-													"fileExtension": ".txt"
-												}
-											},
-											"enableStaging": false
-										},
-										"inputs": [
-											{
-												"referenceName": "inputdatasetforCopyActivity",
-												"type": "DatasetReference",
-												"parameters": {
-													"FileName": {
-														"value": "@variables('filename')",
-														"type": "Expression"
-													}
-												}
-											}
-										],
-										"outputs": [
-											{
-												"referenceName": "outputDatasetforcopyactivity",
-												"type": "DatasetReference",
-												"parameters": {
-													"foldername": "output",
-													"fileName": {
-														"value": "@variables('filename')",
-														"type": "Expression"
-													}
-												}
-											}
-										]
-									}
-								]
-							}
-						},
-						{
-							"name": "Set variable2",
-							"type": "SetVariable",
-							"dependsOn": [
-								{
-									"activity": "Get Metadata2",
-									"dependencyConditions": [
-										"Succeeded"
-									]
-								}
-							],
-							"userProperties": [],
-							"typeProperties": {
-								"variableName": "filename",
-								"value": {
-									"value": "@item().name",
-									"type": "Expression"
-								}
-							}
-						},
-						{
 							"name": "Get Metadata2",
 							"type": "GetMetadata",
 							"dependsOn": [],
@@ -180,7 +76,9 @@
 										}
 									}
 								},
-								"fieldList": [],
+								"fieldList": [
+									"lastModified"
+								],
 								"storeSettings": {
 									"type": "AzureBlobFSReadSettings",
 									"enablePartitionDiscovery": false
@@ -189,14 +87,57 @@
 									"type": "DelimitedTextReadSettings"
 								}
 							}
+						},
+						{
+							"name": "Append variable1",
+							"type": "AppendVariable",
+							"dependsOn": [
+								{
+									"activity": "Get Metadata2",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "Lastmodifiedarray",
+								"value": {
+									"value": "@activity('Get Metadata2').output.lastModified",
+									"type": "Expression"
+								}
+							}
 						}
 					]
+				}
+			},
+			{
+				"name": "Set variable1",
+				"type": "SetVariable",
+				"dependsOn": [
+					{
+						"activity": "ForEach1",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"variableName": "new",
+					"value": {
+						"value": "@variables('Lastmodifiedarray')",
+						"type": "Expression"
+					}
 				}
 			}
 		],
 		"variables": {
-			"filename": {
-				"type": "String"
+			"Lastmodifiedarray": {
+				"type": "Array"
+			},
+			"new": {
+				"type": "Array"
 			}
 		},
 		"annotations": []
